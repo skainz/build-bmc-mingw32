@@ -1,18 +1,9 @@
-all: mk_chroot mk_install_cmake mk_install_mingw mk_install_git mk_install_bmc_src mk_install_boost
+all: mk_chroot mk_install_bmc_src mk_install_boost mk_install_xerces
 
 mk_chroot:
 	echo "building chroot"
 	./mk_chroot.sh && touch mk_chroot
 
-mk_install_cmake:
-	chroot chroot apt install -y cmake && touch mk_install_cmake
-
-mk_install_mingw:
-	chroot chroot apt install -y g++-mingw-w64 && touch mk_install_mingw
-
-
-mk_install_git:
-	chroot chroot apt install -y git && touch mk_install_git
 	
 
 mk_install_bmc_src:

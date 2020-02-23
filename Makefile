@@ -24,6 +24,14 @@ mk_install_boost:
 	cd chroot/src; tar xvzf ../../dl/boost_1_72_0.tar.gz && touch ../../mk_install_boost
 		
 
+mk_install_xerces:
+	mkdir -p dl; mkdir -p chroot/src/; cd dl; wget "https://archive.apache.org/dist/xml/xerces-c/Xerces-C_3_0_1/sources/xerces-c-3.0.1.tar.gz"
+	cd chroot/src; tar xvzf ../../dl/xerces-c-3.0.1.tar.gz
+	chroot chroot  /scripts/build_xerces.sh
+	touch mk_install_xerces	
+
+
+
 clean:
 	rm -rf chroot
 	rm -rf dl

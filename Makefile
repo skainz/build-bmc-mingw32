@@ -22,6 +22,12 @@ mk_install_xerces:
 	touch mk_install_xerces	
 
 
+mk_install_xsd:
+	mkdir -p dl; mkdir -p chroot/src/; cd dl; wget "https://www.codesynthesis.com/download/xsd/4.0/linux-gnu/x86_64/xsd-4.0.0-x86_64-linux-gnu.tar.bz2"
+	cd chroot/usr/local; tar xvjf ../../../dl/xsd-4.0.0-x86_64-linux-gnu.tar.bz2
+	touch mk_install_xsd
+
+
 
 clean:
 	rm -rf chroot

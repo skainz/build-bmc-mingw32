@@ -39,5 +39,6 @@ clean:
 	rm -rf chroot
 	rm -rf dl
 	rm -f mk_install*
+	rm -f mk_build_bmc
 	rm -f mk_chroot
 	

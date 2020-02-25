@@ -1,4 +1,5 @@
 mk_install_*
 mk_chroot
+mk_build_*
 chroot
 dl

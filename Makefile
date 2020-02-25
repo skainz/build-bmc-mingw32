@@ -1,4 +1,4 @@
-all: mk_chroot mk_install_bmc_src mk_install_boost mk_install_xerces mk_install_xsd mk_install_boost
+all: mk_chroot mk_install_bmc_src mk_install_boost mk_install_xerces mk_install_xsd mk_build_bmc
 
 mk_chroot:
 	echo "building chroot"
@@ -7,7 +7,7 @@ mk_chroot:
 	
 
 mk_install_bmc_src:
-	git clone https://github.com/mlang/bmc chroot/bmc && cd chroot/bmc&& git submodule update --init --recursive&& cd ../.. && touch mk_install_bmc_src
+	git clone https://github.com/skainz/bmc-mingw32 chroot/bmc && cd chroot/bmc&& git submodule update --init --recursive&& cd ../.. && touch mk_install_bmc_src
 
 
 mk_install_boost:
@@ -28,6 +28,11 @@ mk_install_xsd:
 	mkdir -p dl; mkdir -p chroot/src/; cd dl; wget "https://www.codesynthesis.com/download/xsd/4.0/linux-gnu/x86_64/xsd-4.0.0-x86_64-linux-gnu.tar.bz2"
 	cd chroot/usr/local; tar xvjf ../../../dl/xsd-4.0.0-x86_64-linux-gnu.tar.bz2
 	touch mk_install_xsd
+
+
+mk_build_bmc:
+	chroot chroot /scripts/build_bmc.sh
+	touch mk_build_bmc
 
 
 clean:
